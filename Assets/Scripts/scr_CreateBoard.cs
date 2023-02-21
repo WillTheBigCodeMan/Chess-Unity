@@ -24,7 +24,6 @@ public class scr_CreateBoard : MonoBehaviour
             }
         }
         generateBoardFromFEN(initialBoardState);
-        Debug.Log(board);
         generatePieces(board);
     }
 
@@ -74,6 +73,7 @@ public class scr_CreateBoard : MonoBehaviour
                     newPiece.AddComponent<scr_dragAndDrop>();
                     newPiece.AddComponent<BoxCollider2D>();
                     newPiece.GetComponent<BoxCollider2D>().size = new Vector2(3,3);
+                    newPiece.GetComponent<scr_dragAndDrop>().movement = gameObject.GetComponent<scr_Movement>();
                 }
                 newPiece.transform.parent = GameObject.Find(i.ToString()).transform;
                 newPiece.name = "Piece";
@@ -82,7 +82,6 @@ public class scr_CreateBoard : MonoBehaviour
                 newPiece.transform.localPosition = new Vector2(0,0);
                 newPiece.transform.localScale = new Vector3(0.3f,0.3f,1);
                 newPiece.tag = "Piece";
-                newPiece.GetComponent<scr_dragAndDrop>().movement = gameObject.getComponent<scr_Movement>();
             }
         }
     }
