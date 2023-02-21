@@ -6,6 +6,7 @@ public class scr_dragAndDrop : MonoBehaviour
 {
     private Vector3 offset;
     private Vector3 storePos;
+    public scr_Movement movement;
     private void OnMouseDown() {
         storePos = transform.position;
         offset = transform.position - (Camera.main.ScreenToWorldPoint(Input.mousePosition));
