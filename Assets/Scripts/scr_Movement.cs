@@ -25,8 +25,7 @@ public class scr_Movement : MonoBehaviour
     }
 
     public int[ , ] GetPieceMoves(int[] board, int pieceIndex) {
-        Debug.Log(new int[1, 2] { { pieceIndex, 0 } });
-        int[,] outArray;
+        int[,] outArray = new int[0,2];
         if(board.Length == 0)
         {
             board = gameObject.GetComponent<scr_CreateBoard>().board;
@@ -36,12 +35,22 @@ public class scr_Movement : MonoBehaviour
             case 1:
                 outArray = blackPawn(board, pieceIndex);
                 break;
+            case 9:
+                outArray = whitePawn(board, pieceIndex);
+                break ;
+
         }
-        return new int[1,2]{ { pieceIndex, 0} };
+        return outArray;
     }
 
     private int[,] blackPawn(int[] board, int pieceIndex)
     {
-        return null;
+        return new int[,] { { pieceIndex, pieceIndex + 8} };
+    }
+
+    private int[,] whitePawn(int[] board, int pieceIndex)
+    {
+        int[,] moves = new int[0, 2];
+        return moves;
     }
 }
